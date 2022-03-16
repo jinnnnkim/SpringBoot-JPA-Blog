@@ -22,13 +22,13 @@ spring:
   jpa:
     open-in-view: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update  #테이블 명령문
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
       use-new-id-generator-mappings: false
-    show-sql: true
+    show-sql: true  #콘솔에 보여지도록
     properties:
-      hibernate.format_sql: true
+      hibernate.format_sql: true  #sql명령문 정렬
 
   jackson:
     serialization:

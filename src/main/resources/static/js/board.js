@@ -4,8 +4,14 @@ let index = {
 		$("#btn-save").on("click", () => {//function(){}, ()=> {} this를 바인딩하기 위함!
 			this.save();
 		});
+	  $("#btn-delete").on("click", () => {
+			this.deleteById();
+		});
+		$("#btn-update").on("click", () => {
+			this.update();
+		});
 	},
-
+	//글쓰기
 	save: function() {
 		//alert('user의 save함수 호출됨');
 		
@@ -27,7 +33,46 @@ let index = {
 		}).fail(function(error){
 			alert(JSON.stringify(error));
 		}); 
+	},
 	
-	}
+	//글 삭제
+	deleteById: function() {	
+		let id = $("#id").text();
+		
+		$.ajax({
+			type: "DELETE", 
+			url:"/api/board/"+id,
+			dataType:"json"
+		}).done(function(resp){
+			alert("삭제가 완료되었습니다.");
+			location.href="/";
+		}).fail(function(error){
+			alert(JSON.stringify(error));
+		}); 
+	},
+	
+	//글 수정
+	update: function() {
+	   let id = $("#id").val();		
+	   
+		let data = {
+			title: $("#title").val(),
+			content: $("#content").val()
+		};
+	
+		$.ajax({
+			type: "PUT", 
+			url:"/api/board/"+id,
+			data: JSON.stringify(data), //http body  데이터
+			contentType: "application/json; charset=utf-8",
+			dataType:"json"
+		}).done(function(resp){
+			alert("글수정이 완료되었습니다.");
+			location.href="/";
+		}).fail(function(error){
+			alert(JSON.stringify(error));
+		}); 
+	},
+	
 }
 index.init();

@@ -17,7 +17,6 @@
 			</div>
 		</c:if>
 
-
 		<div class="form-group">
 			<label for="email">Email</label> 
 			<input type="email" value="${principal.user.email }" class="form-control" placeholder="Enter email" id="email"  readonly>

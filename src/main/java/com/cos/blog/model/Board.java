@@ -33,7 +33,6 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Board {
 	
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)//auto_increment
 	private int id;
@@ -59,5 +58,4 @@ public class Board {
 	
 	@CreationTimestamp
 	private Timestamp createDate;
-
 }

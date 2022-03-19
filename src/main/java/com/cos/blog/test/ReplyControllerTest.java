@@ -28,7 +28,7 @@ public class ReplyControllerTest {
 	
 	@GetMapping("/test/reply")
 	public List<Reply> getReply() {
-		return replyRepository.findAll(); 	//jackson 라이브러리(오브젝트를 json으로 리턴) => 모델의 getter 호출
+		return replyRepository.findAll(); 
 	}
 	
 }

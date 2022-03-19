@@ -89,7 +89,6 @@ public class UserController {
 			   String.class
 			   );
 	   
-	   
 	   //Gson, Json SImple, ObjectMapper
 	   
 	  ObjectMapper objectMapper = new ObjectMapper();
@@ -166,8 +165,6 @@ public class UserController {
 			
 			return "redirect:/";
 	}
-	
-	
 	
 	@GetMapping("/user/updateForm")
 	public String updateForm() {

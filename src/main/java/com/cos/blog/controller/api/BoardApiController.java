@@ -29,7 +29,6 @@ public class BoardApiController {
 	public ResponseDto<Integer> save(@RequestBody Board board, @AuthenticationPrincipal PrincipalDetail principal) { 
 		boardService.글쓰기(board, principal.getUser());
 		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);	// 200 : http 전송 성공
-	
 	} 
 	
 	@DeleteMapping("/api/board/{id}")
@@ -44,31 +43,16 @@ public class BoardApiController {
 		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
 	}
 	
-	//데이터 받을 때 컨트롤러에서 dto를 만들어서 받는게 좋음
-	//dto 사용하지 않은 이유는 프로젝트 규모가 거대할 경우 데이터가 많아짐
-	//수많은 데이터를 모델로 받는건 좋은 방법이 아님!
-	/* 1. 모델형식으로 전달 - 소규모
-	 * @PostMapping("/api/board/{boardId}/reply") public ResponseDto<Integer>
-	 * replySave(@PathVariable int boardId, @RequestBody Reply
-	 * reply, @AuthenticationPrincipal PrincipalDetail principal) {
-	 * 
-	 * boardService.댓글쓰기(principal.getUser(), boardId, reply); return new
-	 * ResponseDto<Integer>(HttpStatus.OK.value(), 1); // 200 : http 전송 성공
-	 * 
-	 * }
-	 */
-	//2. 대규모
+	// 대규모
 	@PostMapping("/api/board/{boardId}/reply")
 	public ResponseDto<Integer> replySave(@RequestBody ReplySaveRequestDto replySaveRequestDto) {
 		boardService.댓글쓰기(replySaveRequestDto);
-		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);	// 200 : http 전송 성공
-	
+		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);	
 	} 
 	
 	@DeleteMapping("/api/board/{boardId}/reply/{replyId}")
 	public ResponseDto<Integer> replyDelete(@PathVariable int replyId){
 		boardService.댓글삭제(replyId);
-		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);	// 200 : http 전송 성공
+		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);	
 	}
-	
 }

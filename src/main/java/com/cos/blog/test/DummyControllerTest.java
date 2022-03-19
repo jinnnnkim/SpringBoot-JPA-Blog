@@ -36,7 +36,6 @@ public class DummyControllerTest {
 	//save 함수는 id를 전달하면 해당 id에 대한 데이터가 있으면 update를 해주고
 	//save 함수는 id를 전달하면 해당 id에 대한 데이터가 없으면 insert를 해요.
 	//email, password
-	
 	@DeleteMapping("/dummy/user/{id}")
 	public String delete(@PathVariable int id) {
 		

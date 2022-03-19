@@ -51,8 +51,6 @@ public class Reply {
 		return "Reply [id=" + id + ", content=" + content + ", board=" + board + ", user=" + user + ", createDate="
 				+ createDate + "]";
 	}
-	
-	
 }
 
 

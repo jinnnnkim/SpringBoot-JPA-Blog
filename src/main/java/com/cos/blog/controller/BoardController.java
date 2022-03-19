@@ -22,10 +22,6 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 	
-	
-	/*
-	 * @Autowired private PrincipalDetail principal;
-	 */
 	//페이징 처리
 	@GetMapping({"", "/"}) 
 	public String index(Model model, @PageableDefault (size=3, sort="id", direction = Sort.Direction.DESC) Pageable pageable)  {
@@ -36,6 +32,7 @@ public class BoardController {
 	@GetMapping("/board/{id}")
 	public String findById(@PathVariable int id, Model model) {
 		model.addAttribute("board", boardService.글상세보기(id));
+		
 		return "board/detail";
 	}
 	

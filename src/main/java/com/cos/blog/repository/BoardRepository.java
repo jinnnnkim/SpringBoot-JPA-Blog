@@ -8,9 +8,4 @@ import com.cos.blog.model.Board;
 
 
 
-public interface BoardRepository  extends JpaRepository<Board, Integer>{
-	
-	
-	
-
-}
+public interface BoardRepository  extends JpaRepository<Board, Integer>{}
